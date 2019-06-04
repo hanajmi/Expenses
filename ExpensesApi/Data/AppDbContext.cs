@@ -9,6 +9,7 @@ namespace ExpensesApi.Data
 {
     public class AppDbContext : DbContext
     {
+        // For WebConfig
         public AppDbContext() : base("name=ExpensesDb")
         {
 
