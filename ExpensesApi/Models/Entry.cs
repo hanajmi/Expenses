@@ -10,7 +10,7 @@ namespace ExpensesApi.Models
     {
         [Key]
         public int id { get; set; }
-        public string descriotion  { get; set; }
+        public string description { get; set; }
         public bool is_expense { get; set; }
         public double value { get; set; }
     }

@@ -3,7 +3,7 @@ namespace ExpensesApi.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial_migration : DbMigration
+    public partial class FirstMigration : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace ExpensesApi.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        descriotion = c.String(),
+                        description = c.String(),
                         is_expense = c.Boolean(nullable: false),
                         value = c.Double(nullable: false),
                     })

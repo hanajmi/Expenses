@@ -21,8 +21,9 @@ namespace ExpensesApi.Migrations
             //  to avoid creating duplicate seed data.
 
             // Add Seed
-            context.Entries.Add(new Entry {
-                descriotion = "test",
+            context.Entries.Add(new Entry
+            {
+                description = "test",
                 is_expense = false,
                 value = 10.11
             });
