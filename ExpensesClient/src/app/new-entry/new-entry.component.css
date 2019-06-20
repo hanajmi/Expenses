@@ -1,0 +1,17 @@
+form {
+	text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.new-entry-form {
+	display: block;
+    margin-bottom: 1.5rem;
+}
+.new-entry-field {
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+.new-form-btn {
+	position: relative;
+}
