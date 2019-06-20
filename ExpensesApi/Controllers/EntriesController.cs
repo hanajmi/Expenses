@@ -28,7 +28,6 @@ namespace ExpensesApi.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-                //throw;
             }
         }
 
