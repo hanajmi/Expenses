@@ -12,7 +12,7 @@ namespace ExpensesApi.Controllers
     public class EntriesController : ApiController
     {
         /**
-         * Get All Data
+         * Get All Entries
          */
         [HttpGet]
         public IHttpActionResult index()
@@ -31,8 +31,29 @@ namespace ExpensesApi.Controllers
             }
         }
 
+        [HttpGet]
         /**
-         * Insert Data
+         * Get One Entry
+         */
+        public IHttpActionResult show(int id)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var entryItem = context.Entries.FirstOrDefault(items => items.id == id);
+                    if (entryItem == null) return NotFound();
+                    return Ok(entryItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /**
+         * Insert Entry
          */
         [HttpPost]
         public IHttpActionResult store([FromBody] Entry entryItem) // $request
@@ -58,7 +79,7 @@ namespace ExpensesApi.Controllers
         }
 
         /**
-         * Update Data
+         * Update Entry
          */
         [HttpPut]
         public IHttpActionResult update(int id, [FromBody] Entry entryItem)
@@ -71,7 +92,7 @@ namespace ExpensesApi.Controllers
                 using (var context = new AppDbContext())
                 {
                     var oldEntryItem =
-                        context.Entries.FirstOrDefault(items => items.id == id); // Select Entry With Imported Id
+                        context.Entries.FirstOrDefault(items => items.id == id); // Select Entry With Imported Id ---> find(id)
                     if (oldEntryItem == null) return NotFound();
 
                     oldEntryItem.description = entryItem.description;
@@ -87,5 +108,30 @@ namespace ExpensesApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        /**
+         * Delete Entry
+         */
+        [HttpDelete]
+        public IHttpActionResult delete(int id)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var entryItem = context.Entries.FirstOrDefault(item => item.id == id);  // Find id
+                    if (entryItem == null) return NotFound();
+
+                    context.Entries.Remove(entryItem);
+                    context.SaveChanges();
+                    return Ok("Entry Deleted");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

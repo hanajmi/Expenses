@@ -15,12 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Material Design
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatButtonModule, MatInputModule, MatCardModule ,MatSelectModule, MatTableModule, MatToolbarModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatCardModule ,MatSelectModule, MatTableModule, MatToolbarModule, MatDialogModule, MatListModule } from '@angular/material';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 
 // Forms
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateEntryComponent } from './update-entry/update-entry.component';
+import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { UpdateEntryComponent } from './update-entry/update-entry.component';
     HeaderComponent,
     FooterComponent,
     NewEntryComponent,
-    UpdateEntryComponent
+    UpdateEntryComponent,
+    DeleteEntryComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule, MatButtonModule, MatTableModule, MatInputModule, MatCardModule ,MatSelectModule, MatToolbarModule, MatDialogModule,// Material Design
+    BrowserAnimationsModule, MatButtonModule, MatTableModule, MatInputModule, MatCardModule ,MatSelectModule, MatToolbarModule, MatDialogModule, MatListModule,// Material Design
     ReactiveFormsModule, // For Forms
     HttpClientModule, // Send And Receive Data
     AppRoutingModule // Routing: app-routing.module.ts
