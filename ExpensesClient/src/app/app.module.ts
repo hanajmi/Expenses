@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 
 // Services
 import { EntryService } from './entry.service';
+import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 
 // Material Design
@@ -22,6 +23,7 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateEntryComponent } from './update-entry/update-entry.component';
 import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
     FooterComponent,
     NewEntryComponent,
     UpdateEntryComponent,
-    DeleteEntryComponent
+    DeleteEntryComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
     AppRoutingModule // Routing: app-routing.module.ts
   ],
   entryComponents: [UpdateEntryComponent],
-  providers: [EntryService], // Service: entries.service.ts
+  providers: [EntryService, AuthService], // Services
   bootstrap: [AppComponent]
 })
 

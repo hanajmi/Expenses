@@ -15,5 +15,7 @@ namespace ExpensesApi.Data
 
         }
         public DbSet<Entry> Entries { get; set; } // Property. Register Model To DbContext
+
+        public DbSet<User> users { get; set; }
     }
 }

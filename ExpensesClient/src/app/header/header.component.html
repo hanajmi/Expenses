@@ -1,5 +1,8 @@
 <mat-toolbar color="primary">
     <button mat-button routerLink="/">App</button>
     <button mat-button routerLink="/entries">Entries</button>
-    <button mat-button routerLink="/new-entry">Create Entries</button>
+	<button mat-button routerLink="/new-entry">Create Entries</button>
+	<span  style="flex: 1 1 auto"></span>
+	<button mat-button *ngIf="auth.isAuthenticated">Welcome {{ auth.getUserName }}</button>
+	<button mat-button routerLink="/register">Register</button>
 </mat-toolbar>

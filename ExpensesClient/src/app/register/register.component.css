@@ -1,0 +1,12 @@
+form {
+	text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.register-form {
+	display: block;
+    margin-bottom: 1.5rem;
+}
+.new-form-btn {
+	position: relative;
+}
