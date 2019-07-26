@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 // Services
 import { EntryService } from '../entry.service';
-import { MatTableDataSource, MatDialog } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatSort, MatPaginator } from '@angular/material';
 import { EntryElement } from '../interfaces/entryElement';
 import { UpdateEntryComponent } from '../update-entry/update-entry.component';
 
@@ -25,6 +25,16 @@ export class EntriesComponent implements OnInit {
 	];
 
 	/**
+	 * Filter 
+	 */
+	@ViewChild(MatSort) sort: MatSort;
+
+	/**
+	 * Paginator
+	 */
+	@ViewChild(MatPaginator) paginator: MatPaginator;
+
+	/**
 	 * Values For Form
 	 */
 	dataSource;
@@ -37,7 +47,14 @@ export class EntriesComponent implements OnInit {
 			console.log('Result - ', data);
 
 			this.dataSource = new MatTableDataSource<EntryElement>(data as EntryElement[])
+
+			// Paginator
+			this.dataSource.paginator = this.paginator; 
 		});
+	}
+
+	applyFilter(filterValue: string) {
+		this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
 	}
 
 	edit(entry) {

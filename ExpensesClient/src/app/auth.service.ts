@@ -18,6 +18,11 @@ export class AuthService {
 		return this.http.post(this.baseUrl + 'register', request);
 	}
 
+	logOut() {
+		localStorage.removeItem('userName');
+		localStorage.removeItem('token_value');
+	}
+
 
 	// Get User Name And Token To Local Storage For Autenticated User
 	get getUserName() {
